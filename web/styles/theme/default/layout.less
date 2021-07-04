@@ -1,0 +1,249 @@
+@HaderFooterBg:#292a2f;
+@bookMenubg:#2d3143;
+body {
+  position: relative;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+.book {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  // 菜单部分
+  .book-left {
+    position: fixed;
+    width: 300px;
+    bottom: 0;
+    top: 0;
+    left: 0;
+    background: @bookMenubg;
+    transition: left .2s ease;
+    z-index: 2;
+    // 搜索框样式
+    .header {
+      width: 300px;
+      height: 70px;
+      padding: 20px;
+      box-sizing: border-box;
+      position: absolute;
+      left: 0;top:0;
+      background: @HaderFooterBg;
+      .search {
+        width: 100%;
+        height: 30px;
+        margin: 0 auto;
+        display: block;
+        border:none;
+        outline: none;
+        padding: 0 10px;
+        box-sizing: border-box;
+        color: #999;
+        background: #48484e;
+      }
+    }
+
+    /* 菜单样式 */
+    .menu {
+      width: 300px;
+      padding: 10px 0;
+      position: absolute;
+      left: 0;top:70px;
+      bottom: 50px;
+      background: @bookMenubg;
+      overflow-y: auto;
+      
+      .item {
+        color: white;
+        font-weight: 400;
+        font-size: 16px;
+        transition: all .2s;
+      }
+      // a样式
+      a{
+        text-decoration: none;
+        display: block;
+        color: #8a90ab;
+        font-weight: normal;
+        padding: 10px 20px;
+      }
+      // 文件连接样式
+      .menu-file {
+        a {
+          font-size: 14px;
+          &:hover{
+            background: #464a5a;
+            color: white;
+          }
+        }
+      }
+
+     // 选中状态
+     .avtive {
+        a {
+          color: white;
+        }
+        .title::before {
+          content:  '';
+          display: inline-block;
+          width: 3px;
+          height: 3px;
+          background: white;
+          vertical-align: middle;
+          margin-right: 3px;
+          border-radius: 5px;
+        }
+      }
+
+      // 搜索的时候高亮样式
+      .highlight{
+        a {
+          color: #ff1e1e;
+        }
+      }
+      // 子元素样式
+      .child {
+        font-size: 14px;
+      }
+      // 填充符号
+      .menu-unit {
+        width: 10px;
+        display: inline-block;
+      }
+    }
+    // 底部
+    .footer {
+      width: 300px;
+      height: 50px;
+      line-height: 50px;
+      font-size: 14px;
+      text-align: center;
+      color: white;
+      position: absolute;
+      left: 0;bottom: 0;
+      background:@HaderFooterBg;
+    }
+    // 收样式
+    .retract {
+      position: absolute;
+      right: -20px;
+      top: 0;
+      height: 20px;
+      width: 20px;
+      background: @HaderFooterBg;
+      cursor: pointer;
+      text-align: center;
+      line-height: 20px;
+      i {
+        font-size: 14px;
+        color: #fff;
+      }
+    }
+  }
+  // 主体
+  .book-body{
+    padding-left: 300px;
+    min-width: 350px;
+    /* background: #1c1f2b; */
+    transition:padding-left .2s ease; 
+  }
+  // 内容
+  .book-page-wrapper {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px 15px 40px 15px;
+  }
+
+  // 隐藏菜单
+  &.hide-menu {
+    .book-left {
+      left: -300px;
+      .retract {
+        transform: rotate(180deg);
+      }
+    }
+    .book-body{
+      padding-left: 0;
+    }
+  }
+  // 加载组件状态
+  .component-loading {
+    width: 100%;
+    background: @bookMenubg;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    box-shadow: 0 8px 8px rgba(10,16,20,.24),0 0 8px rgba(10,16,20,.12);
+    padding: 25px;
+    box-sizing: border-box;
+    &:before {
+      text-align: center;
+      content: "\e61c";
+      display: block;
+      font-family: "iconfont" !important;
+      animation: spin 2s linear infinite;
+      font-size: 25px;
+      color: #8a90ab;
+    }
+  }
+}
+
+// 生成出来的目录样式
+.doc-dir {
+  position: fixed;
+  width: 200px;
+  min-height: 50px;
+  background: @bookMenubg;
+  top: 100px;
+  right: 0;
+  z-index: 9999;
+  padding: 10px 20px;
+  box-sizing: border-box;
+  border-radius: 5px 0 0 5px;
+  transition: right .2s ease;
+  li {
+    line-height: 24px;
+    a {
+      text-decoration: none;
+      color: #8a90ab;
+      font-size: 12px;
+      &:hover{
+        color: white;
+      }
+    }
+  }
+  .level-1 { margin-left: 0px; font-size: 14px;}
+  .level-1::before{
+    content: "# ";
+    color: #8a90ab;
+  }
+  .level-2 { margin-left: 10px; }
+  .level-3 { margin-left: 20px; }
+  .level-4 { margin-left: 30px; }
+  .level-5 { margin-left: 40px; }
+  .level-6 { margin-left: 50px; }
+  // 收起样式
+  .retract {
+    width: 15px;
+    height: 20px;
+    position: absolute;
+    left: -15px;top:50%;
+    margin-top:-10px;
+    background: @bookMenubg;
+    line-height: 18px;
+    color: #8a90ab;
+    border-radius: 0 5px 5px 0;
+    text-align: center;
+    cursor: pointer;
+    transform: rotate(180deg);
+    i {
+      font-size: 12px;
+    }
+  }
+
+  &.doc-dir-hide{
+    right: -200px;
+    .retract {
+      border-radius: 5px 0 0 5px;
+      transform: rotate(0);
+    }
+  }
+}

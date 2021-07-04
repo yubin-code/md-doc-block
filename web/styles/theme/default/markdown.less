@@ -1,0 +1,281 @@
+.markdown {
+  h1, h2, h3, h4 {
+    margin-top: 1em;
+  }
+  h1, h2, h3, h4, h5 {
+    font-family: -apple-system,BlinkMacSystemFont,Helvetica Neue,Helvetica,Segoe UI,Arial,Roboto,PingFang SC,miui,Hiragino Sans GB,Microsoft Yahei,sans-serif;
+  }
+  h1,h2,h3,h4,h5,h6 {
+    font-weight: 400;
+    color: #333;
+  }
+  h1, h2, h3, h4, h5, p , dl{
+    margin-bottom: 16px;
+    padding: 0;
+  }
+  h1 {
+    font-size: 36px;
+    line-height: 54px;
+  }
+  h2 {
+    font-size: 28px;
+    line-height: 42px;
+  }
+  h1, h2 {
+    border-bottom: 1px solid #EFEAEA;
+    padding-bottom: 10px;
+  }
+  h3 {
+    font-size: 20px;
+    line-height: 30px;
+  }
+  h4 {
+    font-size: 16px;
+    line-height: 26px;
+  }
+  h5 {
+    font-size: 14px;
+    list-style: 23px;
+  }
+  a {
+    color: #0099ff;
+    margin: 0;
+    padding: 0;
+    vertical-align: baseline;
+  }
+  a:hover {
+    text-decoration: none;
+    color: #ff6600;
+  }
+
+  ul, ol {
+    padding: 0;
+    padding-left: 24px;
+    margin: 0;
+  }
+  li {
+    line-height: 24px;
+    list-style: inherit;
+  }
+  p, ul, ol {
+    font-size: 16px;
+    line-height: 24px;
+  }
+
+  ol ol, ul ol {
+    list-style-type: lower-roman;
+  }
+
+  .task-item {
+    list-style: none;
+  }
+
+  code {
+    font-family: Consolas, Monaco, Andale Mono, monospace;
+    margin: 0 2px;
+    font-size: 12px;
+    background: #000;
+    padding: 3px 5px;
+    border-radius: 3px;
+    color: white;
+  }
+  /** markdown preview plus 对于代码块的处理有些问题, 所以使用统一的颜色 */
+  /*code .keyword {
+  color: #8959a8;
+  }
+
+  code .number {
+  color: #f5871f;
+  }
+
+  code .comment {
+  color: #998
+  }*/
+
+  aside {
+    display: block;
+    float: right;
+    width: 390px;
+  }
+
+  blockquote {
+    border-left:3px solid #eee;
+    padding: 10px;
+    margin-left:0;
+    background: #f7f7f7;
+  }
+  blockquote p{
+    margin: 0;
+  }
+  blockquote cite {
+    font-size:14px;
+    line-height:20px;
+    color:#bfbfbf;
+  }
+  blockquote cite:before {
+    content: '\2014 \00A0';
+  }
+
+  blockquote p {
+    color: #666;
+  }
+  hr {
+    text-align: left;
+    color: #999;
+    height: 2px;
+    padding: 0;
+    margin: 16px 0;
+    background-color: #e7e7e7;
+    border: 0 none;
+  }
+
+  dl {
+    padding: 0;
+  }
+
+  dl dt {
+    padding: 10px 0;
+    margin-top: 16px;
+    font-size: 1em;
+    font-style: italic;
+    font-weight: bold;
+  }
+
+  dl dd {
+    padding: 0 16px;
+    margin-bottom: 16px;
+  }
+
+  dd {
+    margin-left: 0;
+  }
+
+  // 输入框样式
+  button,
+  input,
+  select,
+  textarea {
+    font-size: 100%;
+    margin: 0;
+    vertical-align: baseline;
+    *vertical-align: middle;
+  }
+  button, input {
+    line-height: normal;
+    *overflow: visible;
+  }
+  button::-moz-focus-inner, input::-moz-focus-inner {
+    border: 0;
+    padding: 0;
+  }
+  button,
+  input[type="button"],
+  input[type="reset"],
+  input[type="submit"] {
+    cursor: pointer;
+    -webkit-appearance: button;
+  }
+  input[type=checkbox], input[type=radio] {
+    cursor: pointer;
+  }
+  /* override default chrome & firefox settings */
+  input:not([type="image"]), textarea {
+    box-sizing: content-box;
+  }
+
+  input[type="search"] {
+    box-sizing: content-box;
+  }
+  input[type="search"]::-webkit-search-decoration {
+    -webkit-appearance: none;
+  }
+  label,
+  input,
+  select,
+  textarea {}
+  
+  input[type=checkbox], input[type=radio] {
+    cursor: pointer;
+    margin-bottom: 0;
+  }
+  input[type=text],
+  input[type=password],
+  textarea,
+  select {}
+  select, input[type=file] {
+    height: 27px;
+    line-height: 27px;
+  }
+  
+  textarea {
+    height: auto;
+  }
+  /* 输入默认文字颜色 */
+  :-moz-placeholder {
+    color: #bfbfbf;
+  }
+  ::-webkit-input-placeholder {
+    color: #bfbfbf;
+  }
+  // 输入框样式
+  input[type=text],
+  input[type=password],
+  select,
+  textarea {}
+
+  // 输入框样式
+  input[type=text]:focus, input[type=password]:focus, textarea:focus {}
+  
+  // button 样式
+  button {}
+
+
+  // table 样式 
+  table {
+    width: 100%;
+    background: #fff;
+    margin-bottom: 1.25em;
+    border: solid 1px #dedede;
+    border-collapse: separate;
+    border-spacing: 0;
+    thead {
+      background: #f7f8f7;
+      font-weight: 700;
+      th {
+        display: table-cell;
+        line-height: 1.6;
+        padding: 10px 8px;
+        font-size: inherit;
+        color: rgba(0,0,0,.8);
+        text-align: left;
+        font-weight: 700;
+      }
+    }
+    
+    tbody {
+      display: table-row-group;
+      vertical-align: middle;
+      border-color: inherit;
+      td {
+        display: table-cell;
+        line-height: 1.6;
+        padding: 10px 8px;
+        font-size: inherit;
+        color: rgba(0,0,0,.8);
+        text-align: left;
+      }
+      tr {
+        display: table-row;
+        vertical-align: inherit;
+        border-color: inherit;
+        &:nth-of-type(even){
+          background: #f8f8f7;
+        }
+        &:hover {
+          background: #e4e4e4;
+          transition: all 0.1s ease-in-out;
+        }
+      }
+    }
+  }
+}

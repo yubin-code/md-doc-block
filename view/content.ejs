@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title %></title>
+</head>
+<body>
+    <div class="book" id="doc-book">
+        <div class="book-left">
+            <!-- header -->
+            <div class="header">
+                <input class="search" name="search" type="text" id="menu-search" placeholder="请输入关键词回车搜索">
+            </div>
+            <!-- 菜单 -->
+            <div class="menu" id="navigation"></div>
+            <!-- 底部 -->
+            <div class="footer">
+                v<%= version %>
+            </div>
+            <div class="retract" id="menu-retract">
+                <i class="iconfont icon-shouqi"></i>
+            </div>
+        </div>
+        <div class="book-body">
+            <div class="book-page-header"></div>
+            <div class="book-page-wrapper markdown"><%- content %></div>
+        </div>
+    </div>
+</body>
+</html>
