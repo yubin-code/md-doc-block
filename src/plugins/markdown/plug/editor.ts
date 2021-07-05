@@ -24,14 +24,20 @@ export default class Editor extends Win{
   getCodeFile(url: string){
     const codePath = url.replace(".", "").split("/");
     const filePath = codePath.filter(item => item !== '');
-    let catalogue = this.codeTree;
+
+    let catalogue = this.getCodeTree();
     let fileName = '';
     
     for(let i in filePath){
-      const item = filePath[i];
-      const tree = this.codeTreeChildren(catalogue, item);
-      
-      // 说明没有目录
+      const name = filePath[i];
+      let tree = this.codeTreeChildren(catalogue, name);
+      // 找不到目录重新加载一下在找一次
+      if(tree == null){
+        this.loadCodePath();
+        tree = this.codeTreeChildren(this.getCodeTree(), name);
+        console.log(tree)
+      }
+      // 如果还是null 那就没有必要找了
       if(tree == null){
         return {};
       }
@@ -98,7 +104,7 @@ export default class Editor extends Win{
    */
   fullRenderer(text){
     // 双标签匹配
-    const reg = /<editor[\s\w\"\'=\u4e00-\u9fa5]*?>([\s\S]*?)<\/editor>/g;
+    const reg = /<editor[\s\w\"\'=\u4e00-\u9fa5\/:\.-]*?>([\s\S]*?)<\/editor>/g;
     return text.replace(reg, (word,value) => {
       // 获取配置
       const cof = this.getCof(word);
@@ -132,8 +138,6 @@ export default class Editor extends Win{
       if(src){
         const fileTree = this.getCodeFile(src);
 
-
-        
         // 获取配置
         const cof = this.getCof(word);
         /**

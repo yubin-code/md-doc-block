@@ -154,6 +154,7 @@ class WebpackMarkdown {
   }
   // 获取页面内容
   getContent(doc: DocType){
+    // 获取文档自定义属性
     // 获取当前文档小面的详情
     const menuInfo = menuState.getInfo(doc.name, doc.context);
     const html = ejs.render(this.contentView, {
@@ -162,7 +163,7 @@ class WebpackMarkdown {
       // 获取版本号
       version: this.package.version,
     });
-
+    
     // 判断是否生成文档大纲
     if(this.options.createDir){
       privateState.set("doc_dir", getDocDir(doc.context));

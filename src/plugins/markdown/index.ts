@@ -42,6 +42,10 @@ class Markdown{
     }
     this.codeTree = readDirTree(this.userCodePath);
   }
+  // 获取代码库的目录结构
+  getCodeTree(){
+    return this.codeTree;
+  }
   
   // 加载插件
   loadPlug(){
@@ -69,8 +73,12 @@ class Markdown{
       
       // 拿到mdconf 配置
       example.mdcof = this.opts.mdcof
-      // 保存代码目录
-      example.codeTree = this.codeTree;
+      // 获取代码库的目录结构
+      example.getCodeTree = this.getCodeTree.bind(this);
+      
+      // 加载代码库
+      example.loadCodePath = this.loadCodePath.bind(this);
+
       // 组件id前缀
       example.componentsIdPrefix = this.opts.componentsIdPrefix;
       // 给插件用户执行程序的路径
@@ -129,7 +137,7 @@ class Markdown{
       html: (text:string) => {
         return this.exePlug('Html', text);
       },
-      listitem: (body, task, checked) => {
+      listItem: (body, task, checked) => {
         let className = '';
         if(task){
           className = 'task-item'

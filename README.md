@@ -106,19 +106,6 @@ var name = "ccc";
 console.log(name);
 ```
 
-
-## 显示目录结构
-```dir
-- demo # demo目录
-  - code # 核心数据
-    - index.js
-    - index.html
-  - docs
-    - demo.md
-  - index.js
-  - index.css
-```
-
 ## 终端功能
 ```bash
 > git commit -m '添加增加功能'

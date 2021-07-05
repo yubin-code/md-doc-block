@@ -1,28 +1,13 @@
 import _ from "lodash";
-import { getAnnotation } from '../utils/reg';
+import doc from '../utils/document';
 
 /**
  * 菜单方法用于生成修改添加等等操作
  */
 
 const MenuMap = new Map();
-
-// 匹配文档中附加信息的正则
-export const menuField = ['type', 'isDir', 'key', 'path', 'url'];
-
-// 添加菜单附加信息
-const getMenuAttr = (item: any, content: string) => {
-  const annotation = getAnnotation(content);
-  // 过滤不允许用户设置的字段
-  menuField.map(key => {
-    delete annotation[key];
-  });
-  
-  return {
-    ...item,
-    ...annotation,
-  }
-}
+// 菜单平行数据
+const MenuFlat = {};
 
 /**
  * 替换菜单中内容
@@ -33,6 +18,7 @@ const replaceMenu = (menuPath:string, attr: any, menuTree:any) => {
   let isUpdate = false;
   for(let i in menuTree){
     const item = menuTree[i];
+
     // 判断是否是目录
     if(item.isDir){
       const replace:any = replaceMenu(menuPath, attr, item.children );
@@ -49,8 +35,16 @@ const replaceMenu = (menuPath:string, attr: any, menuTree:any) => {
         isUpdate = true;
       }
     }
+
+    // 让他不存在引用关系
+    const itemFlat = JSON.parse(JSON.stringify(menuTree[i]));
+    delete itemFlat.children;
+    // 保存平行数据
+    MenuFlat[item.path] = itemFlat;
   }
 
+  // 对数据排序
+  menuTree = menuTree.sort((a, b) => a.sort - b.sort);
   return {
     menuTree,
     isUpdate
@@ -82,6 +76,28 @@ const searchMenu = (MenuPath: string, menuTree: any) => {
   return menuItem;
 }
 
+/**
+ * 合并菜单
+ * 用于用户新建文件的时候使用
+ * @param menuTree 
+ */
+const mergeMenu = (menuTree:any) => {
+  for(let i in menuTree){
+    const item = menuTree[i];
+    // 判断是否是目录
+    if(item.isDir){
+      const replace:any = mergeMenu(item.children);
+      item.children = replace;
+    }
+
+    if(MenuFlat[item.path]){
+      menuTree[i] = Object.assign(item, MenuFlat[item.path]);
+    }
+  }
+
+  return menuTree;
+}
+
 export default {
   /**
    * 创建菜单
@@ -89,18 +105,17 @@ export default {
    * @param menuTree 菜单结构
    */
   create(menuTree:any){
-    MenuMap.set('menu', menuTree);
+    MenuMap.set('menu', mergeMenu(menuTree));
   },
+
   /**
    * 更新菜单
-   * @param docsPath  文档根目录
-   * @param docItem   当前文档路径
+   * @param docsPath  文档路径
+   * @param newItem   菜单新的item 
    */
-  update(docsPath:string, content: string){
+  update(docsPath:string, newItem: any){
     const menuTree = MenuMap.get('menu');
-    const attr = getMenuAttr({}, content);
-    const newMenu = replaceMenu(docsPath, attr, menuTree);
-
+    const newMenu = replaceMenu(docsPath, newItem, menuTree);
     // 判断是否更新数组
     if(newMenu.isUpdate){
       MenuMap.set('menu', newMenu.menuTree);
@@ -114,7 +129,8 @@ export default {
    */
   getInfo(docsPath: string, content: string){
     const key = `/${docsPath.replace("html", "md")}`;
-    this.update(key, content);
+    const newItem = doc.getAttr(content);
+    this.update(key, newItem);
     return searchMenu(key, MenuMap.get('menu'))
   },
   /**

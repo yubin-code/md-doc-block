@@ -53,7 +53,7 @@ export default class Menu{
         }">
         <a ${item.children ? '' : "href='"+this.linkPrefix+item.url+"'"}>
           ${this.getUnit(item.count)}
-          <span class="title">${item.name}</span>
+          <span class="title">${item.title || item.name}</span>
         </a>
       </div>`
   }
