@@ -1,6 +1,6 @@
 {
   "name": "md-doc-block",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "代码块文档管理",
   "main": "index.js",
   "directories": {

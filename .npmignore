@@ -1,4 +1,7 @@
 src/
 types/
+document/
+docs/
+img/
 tsconfig.json
 gulpfile.js
