@@ -39,9 +39,9 @@ export default class Win extends PlugBase{
       closeFile: closeFile || win.closeFile,
       hideLine: hideLine || win.hideLine,
       blank:  blank || browser.blank,
-      copy: code.copy,
+      copy: code.copy || copy,
     }
-
+    
     // 设置复制后缀
     if(!_.isEmpty(copySuffix)){
       conf.copy = { copySuffix }

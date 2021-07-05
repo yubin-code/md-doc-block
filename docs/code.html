@@ -1,0 +1,126 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>mdDoc文档说明</title>
+<link rel="shortcut icon" type="image/x-icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAMAAABg3Am1AAABXFBMVEUAAABnMApmLgpmLgpoMAhuORZlMAtmLwtmLwpmMApmMApnMAxqMw97TS9mLwqOaU9lLgqxlYJmLgpmLgtgMBCCUgh3RAnQv7TbzsV/UTNnMAtlMAvItKVmLwr/////aUv/4gCqj3zl5eX/e2CMYkeyl4T/18//4wz/+c2MXUDZWzvc3d2CVTf18vDiXj+DWj6MWTuMPRr/8QDt7u7/7enPvrLFsaO8pJP/l4HGUzNwNRH/+93i2NH/x7v/tKX/9J//n4yyTCp5SCigRyR5Phupgwb/4Nr/zsX17MH/wLP/r5//p5Wrk4P/8ID/jnehhnT/iXH/7mj/gWiffGX/60/1ZUfQVzezTCuWQR7/5RqphAbizALs5eDw1tH/+cjZy8L/+L//9J3/85Wwm46pinX/7WD/dVn/blHsYkP/6DipVTWMUzS8UjJ8TzH/5iaMQyGDOhZ5NhJ5RwmfdwYdINzAAAAAHXRSTlMAP8B/IP4w4NCAUPLm08+3sKygjxD++8/Lq5BgWDCjc4EAAAH3SURBVEjH3ZVnc5tAEIaRUbHlXtLzHucIUrAgSLa6ZMmS3B3XuKf3Xv//TO4EYwd054gPmcnk+bI7yz47B3eA8h8zNTI4FUoYASJh+gfwI5QQx6VTXA8h9OE0eznRe38UP7PZRURDrGiRC3GlZ/pxcoL+UDfNiCshQDoNJQzQ9b8hRCNnuEuKeEie7yT8jI+fpZOi/hvQjd8pWFbeS3UkBcIEVu5KWMGE8PxQKegTCnekSAQiRSKkpEgETYpQGIvdlhIbE+3zFSLlavdeqwlcSEINfiWaepB7Ho7jfHTaGPAJQ02yPL+2vt4oFoub27upN2+1AO2hwHGu8ep+pqS5LLS8xMzYnZhBQNjttOG72/YOMN3sCC2h4PCiXQYWNE4L+LbPkxKAA5FQPjTNT2Xk0zgy7YOv2DPQLtnmB8RyMRyadqkcEDjsIrF0cF4RUgAnXSXVJjh+YXAvZxh5wqmyd+cRT6yCYTwlnJwx/fKzX7hpsXq9QjosLbnxyTM3ztXI7Mx9v3CNTX9PaZ0wipq2yuNzSnd4XNa07S4BOqlQSh/yeeyRpAjjC6XHPDZY4bFAIMeUPiCMTU2b53HHHUBW2YBZkVB5XXeXvMb6OS+Yz6k15rqE4Y1bFzOzMXzenVTV0ek/sLU1qqpJT0igN87/GJEeUf5NfgERko5Ei+IYcQAAAABJRU5ErkJggg=="><link rel="stylesheet" href="/md-doc-block/sys_css/index.css?hash=u6zxzz"><script src="/md-doc-block/dataScript.js?hash=t9cbhl"></script><script src="/md-doc-block/page_data__gzbvpjxwha.js"></script></head>
+<body>
+    <div class="book" id="doc-book">
+        <div class="book-left">
+            <!-- header -->
+            <div class="header">
+                <input class="search" name="search" type="text" id="menu-search" placeholder="请输入关键词回车搜索">
+            </div>
+            <!-- 菜单 -->
+            <div class="menu" id="navigation"></div>
+            <!-- 底部 -->
+            <div class="footer">
+                v1.0.1
+            </div>
+            <div class="retract" id="menu-retract">
+                <i class="iconfont icon-shouqi"></i>
+            </div>
+        </div>
+        <div class="book-body">
+            <div class="book-page-header"></div>
+            <div class="book-page-wrapper markdown"><h2 id="代码显示">代码显示</h2>
+<h3 id="第一种方式">第一种方式</h3>
+<p>使用 <code>```</code></p>
+<br>
+
+<div id="doc_g88r9zdn" key="code">
+      <div class="component-loading"></div>
+    </div><h3 id="第二种方式">第二种方式</h3>
+<p>使用 <code>editor</code> 标签
+支持打开多个文件使用 <code>```</code>分割文件</p>
+<h4 id="例如：">例如：</h4>
+<p><code>```index.js</code></p>
+<p>中间可以写内容</p>
+<p><code>```</code></p>
+<br>
+
+<div id="doc_ilxb0gd3" key="code">
+      <div class="component-loading"></div>
+    </div>
+
+
+<h3 id="第三种方式">第三种方式</h3>
+<p>直接使用 <code>editor</code> 标签指向一个文件夹他能自动识别里面的所有文件</p>
+<p><code>editor</code>  标签有一个<code>src</code>属性</p>
+<h5 id="例如">例如</h5>
+<div id="doc_zr890kf7" key="code">
+      <div class="component-loading"></div>
+    </div>
+
+<h3 id="属性说明">属性说明</h3>
+<p><code>editor</code> 标签属性</p>
+<table>
+<thead>
+<tr>
+<th>属性</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>src</td>
+<td>直接读取一个文件夹，src优先级为最高 目前只支持一级目录二级以上无法识别</td>
+</tr>
+<tr>
+<td>defaultOpenFile</td>
+<td>默认打开的文件</td>
+</tr>
+<tr>
+<td>height</td>
+<td>设置高度</td>
+</tr>
+<tr>
+<td>maxHeight</td>
+<td>最大高度</td>
+</tr>
+<tr>
+<td>minHeight</td>
+<td>最小高度</td>
+</tr>
+<tr>
+<td>github</td>
+<td>设置git跳转地址</td>
+</tr>
+<tr>
+<td>copy</td>
+<td>是否允许copy</td>
+</tr>
+<tr>
+<td>copySuffix</td>
+<td>拷贝附加的文字</td>
+</tr>
+<tr>
+<td>hideLine</td>
+<td>是否显示行</td>
+</tr>
+<tr>
+<td>closeFile</td>
+<td>是否不允许关闭文件</td>
+</tr>
+<tr>
+<td>closeRetract</td>
+<td>是否不允许收起菜单</td>
+</tr>
+<tr>
+<td>narrowOff</td>
+<td>关闭窗口关闭功能 （窗口的组件所有以下这些属性）</td>
+</tr>
+<tr>
+<td>closeOff</td>
+<td>关闭窗口缩小功能</td>
+</tr>
+<tr>
+<td>screenOff</td>
+<td>关闭窗口全屏功能</td>
+</tr>
+</tbody></table>
+</div>
+        </div>
+    </div>
+
+
+<script src="https://cdn.bootcdn.net/ajax/libs/highlight.js/11.0.1/highlight.min.js"></script><script src="/md-doc-block/sys_scripts/index.js?hash=dum9r8"></script></body></html>

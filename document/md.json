@@ -1,0 +1,9 @@
+{
+  "title": "mdDoc文档说明",
+  "docsPath": "docs",
+  "codePath": "code",
+  "assets": "assets",
+  "multiple": false,
+  "createDir": true,
+  "linkPrefix": "/md-doc-block"
+}
