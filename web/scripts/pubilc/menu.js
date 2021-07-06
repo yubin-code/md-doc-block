@@ -94,7 +94,7 @@ export default class Menu{
       tree.setSource(this.menu);
       // 判断是否有默认搜索
       if(!_.isEmpty(search)){
-        tree.search(search, 'name');
+        tree.search(search, 'title');
       }
       Dom.append(this.dom, tree.getElement());
       return;
