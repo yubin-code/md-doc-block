@@ -109,7 +109,7 @@ export default class Menu{
       if(item.name == docs){
         tree.setSource(item.children);
         if(!_.isEmpty(search)){
-          tree.search(search, 'name');
+          tree.search(search, 'title');
         }
         Dom.append(this.dom, tree.getElement());
         return;
@@ -126,7 +126,7 @@ export default class Menu{
       if(event.keyCode === 13){
         const value = event.target.value;
         setLocal('search', value);
-        treeController.search(value, 'name');
+        treeController.search(value, 'title');
       }
     }, true)
   }
